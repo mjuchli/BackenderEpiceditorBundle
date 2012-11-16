@@ -1,0 +1,25 @@
+{
+	"name": "Backender/epiceditor-bundle",
+	"type": "symfony-bundle",
+	"description": "Symfony2 bundle for easy integration of the EpicEditor",
+	"keywords": ["epiceditor", "markdown", "editor"],
+	"homepage": "http://backender.ch",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Marc Juchli",
+			"email": "mail@backender.ch"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"symfony/framework-bundle": "2.*,<2.3",
+		"symfony/form": "2.1.*",
+		"twig/twig": ">=1.1,<2.0-dev"
+	},
+	"autoload": {
+		"psr-0": { "Backender\\EpiceditorBundle": "" }
+	},
+	"target-dir": "Backender/EpiceditorBundle"
+}
+
