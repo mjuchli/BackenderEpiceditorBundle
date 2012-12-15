@@ -1,6 +1,0 @@
-services:
-    backender_epiceditor.form.type:
-        class: %backender_epiceditor.form.type.class%
-        tags:
-            - { name: form.type, alias: epiceditor }
-        arguments: [ @service_container ]
