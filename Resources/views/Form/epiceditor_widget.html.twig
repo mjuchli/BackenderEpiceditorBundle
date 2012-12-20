@@ -3,14 +3,12 @@
 {% block epiceditor_widget %}
 {% spaceless %}
 
-{# <textarea {{ block('widget_attributes') }}>{{ value }}</textarea> #}
-
+    <textarea style="display: none;" {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <div id="epiceditor"></div>
 
 {% javascripts '@BackenderEpiceditorBundle/Resources/public/js/epiceditor.min.js' %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-
-<div id="epiceditor"></div>
 
 <script type="text/javascript">
     var opts = {
@@ -37,7 +35,30 @@
             edit: 79
         }
     }
-    var editor = new EpicEditor(opts).load();
+    var editor = new EpicEditor(opts);
+
+    //TODO: make browser cache working somehow
+
+    //import form field value on load
+    editor.on('load', function (file) {
+        editor.importFile('{{ id }}',"{{ value }}");
+    });
+    // put existing content to form field
+    /*editor.on('load', function (file) {
+        document.getElementById('{{ id }}').value = editor.exportFile();
+    });*/
+
+
+    editor.on('update', function (file) {
+        document.getElementById('{{ id }}').value = editor.exportFile();
+    });
+
+    editor.on('save', function (file) {
+        document.getElementById('{{ id }}').value = editor.exportFile();
+    });
+
+    // Everything is all setup, so load!
+    editor.load();
 
 </script>
 
