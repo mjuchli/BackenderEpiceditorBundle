@@ -12,6 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * EpicEditor type
  *
+ * @author Marc Juchli <mail@backender.ch>
  */
 class EpiceditorType extends AbstractType
 {

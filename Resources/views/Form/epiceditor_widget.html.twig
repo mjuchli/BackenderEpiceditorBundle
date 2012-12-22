@@ -39,12 +39,11 @@
 
     //TODO: make browser cache working somehow
     editor.on('load', function (file) {
-        editor.importFile('{{ id }}',"{{ value }}");
+        editor.importFile('{{ id }}','{{ value }}');
     });
     /*editor.on('load', function (file) {
         document.getElementById('{{ id }}').value = editor.exportFile();
     });*/
-
 
     editor.on('update', function (file) {
         document.getElementById('{{ id }}').value = editor.exportFile();
