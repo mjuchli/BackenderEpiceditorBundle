@@ -24,7 +24,21 @@ class BackenderEpiceditorExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
-        
+
+        $container->setParameter('twig.form.resources', array_merge(
+            $container->getParameter('twig.form.resources'),
+            array('BackenderEpiceditorBundle:Form:epiceditor_widget.html.twig')
+        ));
+
         $container->setParameter('backender_epiceditor.form.type.class', $config['class']);
+        $container->setParameter('backender_epiceditor.epiceditor.container', $config['container']);
+        $container->setParameter('backender_epiceditor.epiceditor.basepath', $config['basepath']);
+        $container->setParameter('backender_epiceditor.epiceditor.clientSideStorage', $config['clientSideStorage']);
+        $container->setParameter('backender_epiceditor.epiceditor.localStorageName', $config['localStorageName']);
+        $container->setParameter('backender_epiceditor.epiceditor.parser', $config['parser']);
+        $container->setParameter('backender_epiceditor.epiceditor.focusOnLoad', $config['focusOnLoad']);
+        $container->setParameter('backender_epiceditor.epiceditor.file', $config['file']);
+        $container->setParameter('backender_epiceditor.epiceditor.theme', $config['theme']);
+        $container->setParameter('backender_epiceditor.epiceditor.shortcut', $config['shortcut']);
     }
 }

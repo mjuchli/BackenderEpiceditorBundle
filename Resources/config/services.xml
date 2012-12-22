@@ -12,6 +12,7 @@
     <services>
         <service id="backender_epiceditor.form.type" class="%backender_epiceditor.form.type.class%">
             <tag name="form.type" alias="epiceditor" />
+            <argument type="service" id="service_container"/>
         </service>
     </services>
 

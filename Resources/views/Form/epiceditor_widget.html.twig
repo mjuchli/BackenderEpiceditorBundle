@@ -12,38 +12,35 @@
 
 <script type="text/javascript">
     var opts = {
-        container: 'epiceditor',
-        basePath: '/git/blog/web/bundles/backenderepiceditor', //config: base path
-        clientSideStorage: true,
-        localStorageName: 'epiceditor',
-        parser: marked,
+        container: '{{ container }}',
+        basePath: '{{ basepath }}',
+        clientSideStorage: '{{ clientSideStorage }}',
+        localStorageName: '{{ localStorageName }}',
+        parser: {{ parser }},
         file: {
-            name: 'epiceditor',
-            defaultContent: '',
-            autoSave: 100
+            name: '{{ file.name }}',
+            defaultContent: '{{ file.defaultContent }}',
+            autoSave: {{ file.autoSave }}
         },
         theme: {
-            base:'/themes/base/epiceditor.css', //config: base file
-            preview:'/themes/preview/github.css', //config: preview file
-            editor:'/themes/editor/epic-dark.css' //config: editor file
+            base:'{{ theme.base }}',
+            preview:'{{ theme.preview }}',
+            editor:'{{ theme.editor }}'
         },
-        focusOnLoad: false,
+        focusOnLoad: '{{ focusOnLoad }}',
         shortcut: {
-            modifier: 18,
-            fullscreen: 70,
-            preview: 80,
-            edit: 79
+            modifier: {{ shortcut.modifier }},
+            fullscreen: {{ shortcut.fullscreen }},
+            preview: {{ shortcut.preview }},
+            edit: {{ shortcut.edit }}
         }
     }
     var editor = new EpicEditor(opts);
 
     //TODO: make browser cache working somehow
-
-    //import form field value on load
     editor.on('load', function (file) {
         editor.importFile('{{ id }}',"{{ value }}");
     });
-    // put existing content to form field
     /*editor.on('load', function (file) {
         document.getElementById('{{ id }}').value = editor.exportFile();
     });*/
