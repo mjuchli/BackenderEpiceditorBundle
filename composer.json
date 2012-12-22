@@ -1,14 +1,14 @@
 {
-	"name": "Backender/epiceditor-bundle",
+	"name": "backender/epiceditor-bundle",
 	"type": "symfony-bundle",
 	"description": "Symfony2 bundle for easy integration of the EpicEditor",
 	"keywords": ["epiceditor", "markdown", "editor"],
 	"homepage": "http://backender.ch",
 	"license": "MIT",
 	"authors": [
-		{
-			"name": "Marc Juchli",
-			"email": "mail@backender.ch"
+	    {
+		    "name": "Marc Juchli",
+	        "email": "mail@backender.ch"
 		}
 	],
 	"require": {
