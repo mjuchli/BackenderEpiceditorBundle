@@ -121,17 +121,10 @@ $form = $this->createFormBuilder($post)
 
 ##Contribute
 
-If the bundle doesn't allow you to customize an option, I invite you to make a PR & I will merge it.
-
-All code contributions - including those of people having commit access -
-must go through a pull request and approved by a core developer before being
-merged. This is to ensure proper review of all the code.
-
-Fork the project, create a feature branch, and send a pull request.
+If the bundle doesn't allow you to customize an option, I invite you to fork the project, create a feature branch, and send a pull request.
 
 To ensure a consistent code base, you should make sure the code follows
-the [Coding Standards](http://symfony.com/doc/2.1/contributing/code/standards.html)
-which we borrowed from Symfony.
+the [Coding Standards](http://symfony.com/doc/2.1/contributing/code/standards.html).
 
 
 ##License
