@@ -11,6 +11,8 @@
 {% endjavascripts %}
 
 <script type="text/javascript">
+(function() {
+
     var opts = {
         container: '{{ container }}',
         basePath: '{{ basepath }}',
@@ -34,28 +36,21 @@
             preview: {{ shortcut.preview }},
             edit: {{ shortcut.edit }}
         }
-    }
-    var editor = new EpicEditor(opts);
+    };
 
-    //TODO: make browser cache working somehow
-    editor.on('load', function (file) {
-        editor.importFile('{{ id }}', "{{ value }}");
-    });
-    /*editor.on('load', function (file) {
-        document.getElementById('{{ id }}').value = editor.exportFile();
-    });*/
+    var editor = new EpicEditor(opts),
+        textarea = document.getElementById('{{ id }}');
 
     editor.on('update', function (file) {
-        document.getElementById('{{ id }}').value = editor.exportFile();
-    });
-
-    editor.on('save', function (file) {
-        document.getElementById('{{ id }}').value = editor.exportFile();
+        textarea.value = editor.exportFile();
     });
 
     // Everything is all setup, so load!
-    editor.load();
+    editor.load(function () {
+        editor.importFile('{{ id }}', textarea.value);
+    });
 
+})();
 </script>
 
 {% endspaceless %}
